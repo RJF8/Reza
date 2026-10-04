@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="theme-color" content="#070812">
+
+<title>RJF8 — Creative Studio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Vazirmatn,Arial,sans-serif;
+    background:#070812;
+    color:#fff;
+    overflow-x:hidden;
+    line-height:1.8;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.18;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+
+    background-size:45px 45px;
+
+    mask-image:linear-gradient(to bottom,#000,transparent 85%);
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+.container{
+    width:min(1120px,92%);
+    margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    z-index:100;
+    top:14px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:min(1080px,94%);
+    padding:12px 18px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(8,9,20,.7);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    box-shadow:0 15px 50px rgba(0,0,0,.25);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#7c5cff;
+}
+
+/* desktop nav */
+
+nav{
+    display:flex;
+    gap:24px;
+    color:#b9bbca;
+    font-size:14px;
+}
+
+nav a{
+    transition:.25s;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.menu-button{
+    width:44px;
+    height:44px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(255,255,255,.045);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+}
+
+.menu-lines{
+    width:20px;
+}
+
+.menu-lines span{
+    display:block;
+    height:2px;
+    background:#fff;
+    margin:5px 0;
+    border-radius:5px;
+
+    transition:.3s;
+}
+
+.menu-button.active .menu-lines span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+}
+
+.menu-button.active .menu-lines span:nth-child(2){
+    opacity:0;
+}
+
+.menu-button.active .menu-lines span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu{
+    position:fixed;
+
+    z-index:90;
+
+    top:84px;
+    right:3%;
+
+    width:min(330px,94%);
+
+    padding:12px;
+
+    border-radius:24px;
+
+    background:rgba(10,11,24,.78);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        inset 0 1px rgba(255,255,255,.05);
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-15px) scale(.97);
+
+    transition:.3s;
+}
+
+.mobile-menu.open{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+}
+
+.mobile-menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:15px;
+
+    color:#bfc1cf;
+
+    border-radius:15px;
+
+    transition:.2s;
+}
+
+.mobile-menu a:hover{
+    background:rgba(124,92,255,.1);
+    color:#fff;
+}
+
+.menu-icon{
+    width:36px;
+    height:36px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:rgba(255,255,255,.05);
+
+    font-size:17px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+
+    padding:120px 0 70px;
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.45;
+    pointer-events:none;
+}
+
+.o1{
+    width:280px;
+    height:280px;
+    background:#673cff;
+    top:12%;
+    right:-80px;
+}
+
+.o2{
+    width:240px;
+    height:240px;
+    background:#00d9ff;
+    bottom:8%;
+    left:-80px;
+}
+
+.hero-content{
+    max-width:780px;
+    position:relative;
+}
+
+.badge{
+    display:inline-flex;
+
+    padding:7px 13px;
+
+    border:1px solid rgba(124,92,255,.45);
+
+    background:rgba(124,92,255,.09);
+
+    border-radius:999px;
+
+    color:#b9aaff;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+}
+
+h1{
+    font-size:clamp(54px,11vw,118px);
+    line-height:.95;
+    letter-spacing:-4px;
+    font-weight:900;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #9d8aff,
+        #58e6ff
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero p{
+    color:#a9adbd;
+    font-size:18px;
+    max-width:680px;
+    margin:28px 0;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    transition:.25s;
+
+    cursor:pointer;
+}
+
+.primary{
+    background:#fff;
+    color:#080812;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 40px rgba(255,255,255,.15);
+}
+
+.secondary{
+    background:rgba(255,255,255,.04);
+    color:#fff;
+}
+
+.secondary:hover{
+    background:rgba(255,255,255,.09);
+    transform:translateY(-3px);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    font-size:38px;
+    font-weight:900;
+    margin-bottom:12px;
+}
+
+.section-sub{
+    color:#85899c;
+    margin-bottom:35px;
+}
+
+/* =========================
+   GLASS CARDS
+========================= */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.card{
+    min-height:240px;
+
+    padding:24px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+
+    position:relative;
+    overflow:hidden;
+
+    transition:.3s;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+.card:hover{
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(124,92,255,.45);
+}
+
+.card:after{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    background:#7c5cff;
+
+    filter:blur(70px);
+
+    opacity:.1;
+
+    top:-70px;
+    left:-50px;
+}
+
+.icon{
+    font-size:35px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#969aaa;
+    font-size:14px;
+}
+
+.tag{
+    display:inline-block;
+
+    margin-top:20px;
+
+    font-size:12px;
+
+    color:#a99cff;
+
+    background:rgba(124,92,255,.1);
+
+    padding:5px 9px;
+
+    border-radius:8px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    display:grid;
+
+    grid-template-columns:
+        1.1fr .9fr;
+
+    gap:25px;
+
+    align-items:stretch;
+}
+
+.panel{
+    padding:32px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.06),
+        0 20px 60px rgba(0,0,0,.15);
+}
+
+.panel p{
+    color:#a5a8b7;
+}
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+}
+
+.stat{
+    padding:20px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    backdrop-filter:blur(12px);
+}
+
+.stat b{
+    display:block;
+    font-size:30px;
+}
+
+.stat span{
+    color:#85899c;
+    font-size:13px;
+}
+
+/* =========================
+   EXTRA GLASS FEATURE
+========================= */
+
+.glass-feature{
+    margin-top:25px;
+
+    padding:28px;
+
+    border-radius:26px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.1),
+            rgba(255,255,255,.025)
+        );
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 25px 70px rgba(0,0,0,.2);
+}
+
+.glass-feature:before{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    background:#7c5cff;
+
+    filter:blur(90px);
+
+    opacity:.13;
+
+    top:-130px;
+    right:-80px;
+}
+
+.glass-feature-content{
+    position:relative;
+    z-index:2;
+}
+
+.glass-label{
+    color:#a99cff;
+    font-size:12px;
+    margin-bottom:8px;
+}
+
+.glass-feature h3{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.glass-feature p{
+    color:#9498aa;
+    font-size:14px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    text-align:center;
+
+    padding:70px 25px;
+
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(124,92,255,.2),
+            transparent 60%
+        ),
+        rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+}
+
+.cta h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#999dae;
+    margin-bottom:25px;
+}
+
+/* =========================
+   INNER PAGES
+========================= */
+
+.page{
+    display:none;
+
+    min-height:100vh;
+
+    padding-top:130px;
+    padding-bottom:80px;
+}
+
+.page.active{
+    display:block;
+
+    animation:pageIn .45s ease;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.page-header{
+    margin-bottom:35px;
+}
+
+.page-header .badge{
+    margin-bottom:14px;
+}
+
+.page-header h2{
+    font-size:clamp(38px,7vw,65px);
+    line-height:1.1;
+}
+
+.page-header p{
+    color:#969aaa;
+    margin-top:12px;
+    max-width:700px;
+}
+
+/* project large cards */
+
+.project-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.project-card{
+    min-height:280px;
+
+    padding:30px;
+
+    border-radius:27px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.018)
+        );
+
+    backdrop-filter:blur(14px);
+
+    transition:.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(124,92,255,.4);
+}
+
+.project-number{
+    font-size:12px;
+    color:#8172dc;
+}
+
+.project-card h3{
+    font-size:28px;
+    margin:15px 0 8px;
+}
+
+.project-card p{
+    color:#969aaa;
+    font-size:14px;
+}
+
+/* contact page */
+
+.contact-box{
+    max-width:760px;
+    margin:auto;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:20px;
+
+    margin-bottom:12px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.035);
+
+    backdrop-filter:blur(14px);
+
+    transition:.25s;
+}
+
+.contact-item:hover{
+    transform:translateX(-5px);
+
+    background:rgba(124,92,255,.07);
+}
+
+.contact-icon{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:rgba(124,92,255,.12);
+
+    font-size:22px;
+}
+
+.contact-item small{
+    color:#777b8d;
+    display:block;
+}
+
+.contact-item strong{
+    font-size:15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:30px 0 45px;
+
+    color:#6f7385;
+
+    font-size:13px;
+
+    text-align:center;
+}
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:.7s;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    header{
+        padding:10px 14px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .menu-button{
+        display:flex;
+    }
+
+    .hero{
+        min-height:92vh;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    h1{
+        letter-spacing:-2px;
+    }
+
+    .grid,
+    .about,
+    .project-list{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:70px 0;
+    }
+
+    .section-title{
+        font-size:31px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .page{
+        padding-top:120px;
+    }
+
+    .page-header h2{
+        font-size:42px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:430px){
+
+    .hero{
+        padding-top:110px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+        width:100%;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .panel,
+    .glass-feature,
+    .project-card{
+        padding:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <a class="logo" href="#" onclick="showPage('home')">
+        RJF<span>8</span>
+    </a>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">خانه</a>
+        <a href="#" onclick="showPage('projects')">پروژه‌ها</a>
+        <a href="#" onclick="showPage('about')">درباره من</a>
+        <a href="#" onclick="showPage('contact')">ارتباط</a>
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        onclick="toggleMenu()"
+        aria-label="منو"
+    >
+
+        <div class="menu-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </button>
+
+</header>
+
+<!-- =========================
+     MOBILE MENU
+========================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="#" onclick="showPage('home');closeMenu()">
+        <div class="menu-icon">⌂</div>
+        <span>صفحه اصلی</span>
+    </a>
+
+    <a href="#" onclick="showPage('projects');closeMenu()">
+        <div class="menu-icon">🎮</div>
+        <span>پروژه‌ها</span>
+    </a>
+
+    <a href="#" onclick="showPage('about');closeMenu()">
+        <div class="menu-icon">👤</div>
+        <span>درباره من</span>
+    </a>
+
+    <a href="#" onclick="showPage('ideas');closeMenu()">
+        <div class="menu-icon">💡</div>
+        <span>آزمایشگاه ایده‌ها</span>
+    </a>
+
+    <a href="#" onclick="showPage('contact');closeMenu()">
+        <div class="menu-icon">✦</div>
+        <span>ارتباط</span>
+    </a>
+
+</div>
+
+
+<!-- =========================================================
+     HOME
+========================================================= -->
+
+<main id="homePage" class="page active">
+
+<section class="hero">
+
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+
+    <div class="container">
+
+        <div class="hero-content reveal">
+
+            <div class="badge">
+                RJF8 • Creative Studio
+            </div>
+
+            <h1>
+                ایده‌ها را<br>
+                <span class="gradient">
+                    قابل بازی
+                </span>
+                می‌کنم.
+            </h1>
+
+            <p>
+                من رضا هستم؛ سازنده بازی‌ها و پروژه‌های خلاقانه.
+                RJF8 جایی است برای نمایش ایده‌هایی که از یک فکر ساده شروع می‌شوند
+                و به تجربه‌هایی واقعی، تعاملی و متفاوت تبدیل می‌شوند.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="btn primary"
+                    href="#"
+                    onclick="showPage('projects')"
+                >
+                    مشاهده پروژه‌ها ↓
+                </a>
+
+                <a
+                    class="btn secondary"
+                    href="#"
+                    onclick="showPage('about')"
+                >
+                    بیشتر درباره RJF8
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <div class="container">
+
+        <div class="reveal">
+
+            <h2 class="section-title">
+                پروژه‌های منتخب
+            </h2>
+
+            <p class="section-sub">
+                چند نمونه از چیزهایی که در RJF8 می‌توانند به واقعیت تبدیل شوند.
+            </p>
+
+        </div>
+
+
+        <div class="grid">
+
+            <article class="card reveal">
+
+                <div class="icon">
+                    🎮
+                </div>
+
+                <h3>
+                    بازی‌های خلاقانه
+                </h3>
+
+                <p>
+                    بازی‌های موبایلی و تحت وب با تمرکز روی تجربه،
+                    داستان و مکانیک‌های متفاوت.
+                </p>
+
+                <span class="tag">
+                    GAME DEV
+                </span>
+
+            </article>
+
+
+            <article class="card reveal">
+
+                <div class="icon">
+                    🌆
+                </div>
+
+                <h3>
+                    Escape from Set City
+                </h3>
+
+                <p>
+                    یک دنیای سه‌بعدی آموزشی که مفاهیم مجموعه‌ها
+                    را به قوانین واقعی بازی تبدیل می‌کند.
+                </p>
+
+                <span class="tag">
+                    3D • EDUCATION
+                </span>
+
+            </article>
+
+
+            <article class="card reveal">
+
+                <div class="icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    آزمایشگاه ایده‌ها
+                </h3>
+
+                <p>
+                    پروژه‌های کوچک، تجربه‌های عجیب و ایده‌هایی که
+                    شاید روزی تبدیل به یک محصول بزرگ شوند.
+                </p>
+
+                <span class="tag">
+                    EXPERIMENTAL
+                </span>
+
+            </article>
+
+        </div>
+
+
+        <!-- GLASS FEATURE -->
+
+        <div class="glass-feature reveal">
+
+            <div class="glass-feature-content">
+
+                <div class="glass-label">
+                    RJF8 / FEATURED
+                </div>
+
+                <h3>
+                    اینجا فقط یک سایت نیست.
+                </h3>
+
+                <p>
+                    اینجا ویترین ایده‌هایی است که قرار است ساخته شوند.
+                    هر پروژه یک تجربه جدید است.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <div class="container">
+
+        <div class="cta reveal">
+
+            <h2>
+                یک ایده داری؟
+            </h2>
+
+            <p>
+                شاید پروژه بعدی RJF8 از همین‌جا شروع شود.
+            </p>
+
+            <a
+                class="btn primary"
+                href="#"
+                onclick="showPage('contact')"
+            >
+                شروع یک پروژه
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     PROJECTS PAGE
+========================================================= -->
+
+<main id="projectsPage" class="page">
+
+<div class="container">
+
+    <div class="page-header reveal">
+
+        <div class="badge">
+            RJF8 / PROJECTS
+        </div>
+
+        <h2>
+            پروژه‌های من
+        </h2>
+
+        <p>
+            پروژه‌هایی که ساخته شده‌اند، در حال توسعه هستند
+            یا قرار است در آینده ساخته شوند.
+        </p>
+
+    </div>
+
+
+    <div class="project-list">
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                PROJECT 01
+            </div>
+
+            <h3>
+                Escape from Set City
+            </h3>
+
+            <p>
+                یک بازی سه‌بعدی آموزشی با دنیایی بزرگ،
+                مراحل جداگانه و مکانیک‌هایی که مفاهیم مجموعه‌ها
+                را به قوانین واقعی بازی تبدیل می‌کنند.
+            </p>
+
+            <span class="tag">
+                3D GAME
+            </span>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                PROJECT 02
+            </div>
+
+            <h3>
+                RJF8 Games
+            </h3>
+
+            <p>
+                مجموعه‌ای از بازی‌های تحت وب و موبایلی
+                که با هدف تجربه سریع، سرگرم‌کننده و متفاوت ساخته می‌شوند.
+            </p>
+
+            <span class="tag">
+                WEB GAME
+            </span>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                PROJECT 03
+            </div>
+
+            <h3>
+                Experimental Lab
+            </h3>
+
+            <p>
+                جایی برای آزمایش ایده‌های عجیب، رابط‌های جدید،
+                مکانیک‌های بازی و پروژه‌هایی که هنوز اسم مشخصی ندارند.
+            </p>
+
+            <span class="tag">
+                EXPERIMENTAL
+            </span>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                PROJECT 04
+            </div>
+
+            <h3>
+                آینده RJF8
+            </h3>
+
+            <p>
+                پروژه‌های بیشتری در راه هستند.
+                این بخش با ساخته‌شدن پروژه‌های جدید به‌روزرسانی خواهد شد.
+            </p>
+
+            <span class="tag">
+                COMING SOON
+            </span>
+
+        </article>
+
+    </div>
+
+</div>
+
+</main>
+
+
+<!-- =========================================================
+     ABOUT PAGE
+========================================================= -->
+
+<main id="aboutPage" class="page">
+
+<div class="container">
+
+    <div class="page-header reveal">
+
+        <div class="badge">
+            RJF8 / ABOUT
+        </div>
+
+        <h2>
+            درباره من
+        </h2>
+
+        <p>
+            پشت RJF8 یک نفر ایستاده که عاشق ساختن چیزهای جدید است.
+        </p>
+
+    </div>
+
+
+    <div class="about">
+
+        <div class="panel reveal">
+
+            <h2 class="section-title">
+                من رضا هستم.
+            </h2>
+
+            <p>
+                به بازی‌سازی، طراحی، برنامه‌نویسی و تبدیل ایده‌های
+                ساده به پروژه‌های واقعی علاقه دارم.
+            </p>
+
+            <br>
+
+            <p>
+                RJF8 را ساختم تا فقط یک اسم نباشد؛
+                بلکه تبدیل شود به یک فضای شخصی برای نمایش
+                چیزهایی که می‌سازم و ایده‌هایی که در ذهن دارم.
+            </p>
+
+        </div>
+
+
+        <div class="stats reveal">
+
+            <div class="stat">
+                <b>∞</b>
+                <span>ایده برای ساختن</span>
+            </div>
+
+            <div class="stat">
+                <b>3D</b>
+                <span>دنیای تعاملی</span>
+            </div>
+
+            <div class="stat">
+                <b>24/7</b>
+                <span>آزمایش و خلاقیت</span>
+            </div>
+
+            <div class="stat">
+                <b>RJF8</b>
+                <span>برند شخصی</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="glass-feature reveal">
+
+        <div class="glass-feature-content">
+
+            <div class="glass-label">
+                PERSONAL MOTTO
+            </div>
+
+            <h3>
+                «فقط ایده نده؛ بسازش.»
+            </h3>
+
+            <p>
+                هدف RJF8 همین است؛ ایده‌ها از ذهن خارج شوند
+                و تبدیل به چیزی شوند که بتوان آن را دید و تجربه کرد.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+
+<!-- =========================================================
+     IDEAS PAGE
+========================================================= -->
+
+<main id="ideasPage" class="page">
+
+<div class="container">
+
+    <div class="page-header reveal">
+
+        <div class="badge">
+            RJF8 / IDEAS LAB
+        </div>
+
+        <h2>
+            آزمایشگاه ایده‌ها
+        </h2>
+
+        <p>
+            اینجا جایی است که ایده‌های عجیب هنوز اجازه دارند زنده باشند.
+        </p>
+
+    </div>
+
+
+    <div class="grid">
+
+        <article class="card reveal">
+
+            <div class="icon">
+                🧪
+            </div>
+
+            <h3>
+                ایده‌های آزمایشی
+            </h3>
+
+            <p>
+                چیزهایی که شاید کوچک باشند،
+                اما ممکن است شروع یک پروژه بزرگ شوند.
+            </p>
+
+        </article>
+
+
+        <article class="card reveal">
+
+            <div class="icon">
+                🧠
+            </div>
+
+            <h3>
+                مکانیک‌های جدید
+            </h3>
+
+            <p>
+                آزمایش روش‌های تازه برای ساخت بازی‌هایی
+                که شبیه بازی‌های معمولی نباشند.
+            </p>
+
+        </article>
+
+
+        <article class="card reveal">
+
+            <div class="icon">
+                🚀
+            </div>
+
+            <h3>
+                ایده‌های آینده
+            </h3>
+
+            <p>
+                پروژه‌هایی که هنوز شروع نشده‌اند،
+                اما ممکن است به‌زودی وارد RJF8 شوند.
+            </p>
+
+        </article>
+
+    </div>
+
+</div>
+
+</main>
+
+
+<!-- =========================================================
+     CONTACT PAGE
+========================================================= -->
+
+<main id="contactPage" class="page">
+
+<div class="container">
+
+    <div class="page-header reveal">
+
+        <div class="badge">
+            RJF8 / CONTACT
+        </div>
+
+        <h2>
+            ارتباط
+        </h2>
+
+        <p>
+            برای ارتباط یا شروع یک پروژه می‌توانی از این بخش استفاده کنی.
+        </p>
+
+    </div>
+
+
+    <div class="contact-box">
+
+        <a
+            class="contact-item reveal"
+            href="mailto:rjf8@example.com"
+        >
+
+            <div class="contact-icon">
+                ✉
+            </div>
+
+            <div>
+                <small>
+                    EMAIL
+                </small>
+
+                <strong>
+                    rjf8@example.com
+                </strong>
+            </div>
+
+        </a>
+
+
+        <div class="contact-item reveal">
+
+            <div class="contact-icon">
+                ✦
+            </div>
+
+            <div>
+                <small>
+                    BRAND
+                </small>
+
+                <strong>
+                    RJF8 Creative Studio
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="glass-feature reveal">
+
+            <div class="glass-feature-content">
+
+                <div class="glass-label">
+                    LET'S CREATE
+                </div>
+
+                <h3>
+                    آماده ساختن چیز بعدی هستیم.
+                </h3>
+
+                <p>
+                    این قسمت بعداً می‌تواند به شبکه‌های اجتماعی،
+                    فرم تماس یا هر سرویس دیگری که بخواهی متصل شود.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+
+<footer>
+    © 2026 RJF8 — ساخته‌شده برای ایده‌های بزرگ.
+</footer>
+
+
+<script>
+
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
+
+function showPage(pageName){
+
+    const pages = [
+        "home",
+        "projects",
+        "about",
+        "ideas",
+        "contact"
+    ];
+
+    pages.forEach(function(page){
+
+        const element =
+            document.getElementById(page + "Page");
+
+        if(element){
+            element.classList.remove("active");
+        }
+
+    });
+
+
+    const selected =
+        document.getElementById(pageName + "Page");
+
+    if(selected){
+        selected.classList.add("active");
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+
+    setTimeout(function(){
+
+        selected
+        ?.querySelectorAll(".reveal")
+        .forEach(function(element){
+
+            element.classList.add("show");
+
+        });
+
+    },120);
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(){
+
+    const menu =
+        document.getElementById("mobileMenu");
+
+    const button =
+        document.getElementById("menuButton");
+
+    menu.classList.toggle("open");
+
+    button.classList.toggle("active");
+
+}
+
+
+function closeMenu(){
+
+    const menu =
+        document.getElementById("mobileMenu");
+
+    const button =
+        document.getElementById("menuButton");
+
+    menu.classList.remove("open");
+
+    button.classList.remove("active");
+
+}
+
+
+/* =========================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+========================================================= */
+
+document.addEventListener("click",function(event){
+
+    const menu =
+        document.getElementById("mobileMenu");
+
+    const button =
+        document.getElementById("menuButton");
+
+    if(
+        menu.classList.contains("open") &&
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+    ){
+
+        closeMenu();
+
+    }
+
+});
+
+
+/* =========================================================
+   ORIGINAL REVEAL ANIMATION
+========================================================= */
+
+const items =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+items.forEach(function(item){
+
+    observer.observe(item);
+
+});
+
+
+/* =========================================================
+   INITIAL
+========================================================= */
+
+window.addEventListener("load",function(){
+
+    document
+        .querySelectorAll("#homePage .reveal")
+        .forEach(function(element){
+
+            element.classList.add("show");
+
+        });
+
+});
+
+</script>
+
+</body>
+</html>
